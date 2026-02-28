@@ -1,4 +1,5 @@
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
+import "./Navbar.css";
 
 function Navbar() {
 
@@ -10,20 +11,20 @@ return(
           <li>
             <Link to="/">Home</Link>
           </li>
-          <li>
+          {/* <li>
             <Link to="/category">Category Page</Link>
-          </li>
-          <li>
-            <Link to="/recipe">Recipe Page</Link>
+          </li> */}
+          {/* <li>
+            <Link to="/recipe">Recipe</Link>
           </li>
           <li>
             <Link to="/recipeDetailPage">Recipe Detail Page</Link>
+          </li> */}
+          <li>
+            <Link to="/favorites">Favorites</Link>
           </li>
           <li>
-            <Link to="/favorites">Favorites Page</Link>
-          </li>
-          <li>
-            <Link to="/search">Search Page</Link>
+            <Link to="/search">Search</Link>
           </li>
         </ul>
       </nav>

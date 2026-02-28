@@ -1,7 +1,23 @@
-#root {
+#main {
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
 }
 
+.category-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  list-style-type: none;
+}
+
+.category-card {
+  background-color: #EEE;
+}
+
+.category-info {
+  padding-left: 10px;
+  padding-right: 10px;
+  color: black;
+}

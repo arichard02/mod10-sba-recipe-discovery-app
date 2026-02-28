@@ -1,4 +1,3 @@
-
 import { Routes, Route } from "react-router-dom";
 
 import HomePage from "./pages/HomePage";
@@ -14,15 +13,17 @@ function App() {
   return (
     <>
       <Navbar />
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/categoryPage" element={<CategoryPage />} />
-        <Route path="/recipePage" element={<RecipePage />} />
-        <Route path="/recipeDetailPage" element={<RecipeDetailPage />} />
-        <Route path="/favoritesPage" element={<FavoritesPage />} />
-        <Route path="/searchPage" element={<SearchPage />} />
-      </Routes>
-      </>
+      <div className="main">
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/category/:categoryName" element={<CategoryPage />} />
+          {/* <Route path="/recipePage" element={<RecipePage />} /> */}
+          <Route path="/recipe/:id" element={<RecipeDetailPage />} />
+          <Route path="/favoritesPage" element={<FavoritesPage />} />
+          <Route path="/searchPage" element={<SearchPage />} />
+        </Routes>
+      </div>
+    </>
   );
 }
 

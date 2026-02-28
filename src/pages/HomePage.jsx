@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import Navbar from "../components/NavBar";
+
 
 // import './App.css'
 
@@ -32,11 +32,17 @@ function HomePage() {
   return (
     <div className="homepage">
       <h2>Recipe Categories</h2>
-      <ul>
+      <ul className="category-grid">
         {categories.map((category) => (
-          <li key={category.idCategory}>
+          <li className="category-card"  key={category.idCategory}>
             <Link to={`category/${category.strCategory}`}>
-              {category.strCategory}
+            <img src={category.strCategoryThumb} alt={`Photo of ${category.strCategory}` } />
+             <div className="category-info">
+              <h3>{category.strCategory}</h3>
+              <p>
+                {category.strCategoryDescription.substring(0, 100)}...
+              </p>
+              </div>
             </Link>
           </li>
         ))}
