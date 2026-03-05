@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { useFavorites } from "../context/FavoritesContext";
 import useFetch from "../hooks/useFetch";
@@ -28,22 +27,33 @@ function RecipeDetailPage() {
   // console.log(recipe);
 
   const { addFavorite, removeFavorite, isFavorite } = useFavorites();
+  const recipe = data?.meals?.[0];
   // <button onClick={() => isFavorite(recipe.idMeal) ? removeFavorite(recipe.idMeal) : "Add to Favorites"}></button>
 
-  if (loading) return <div>Loading Recipe...</div>
-  if (error) return <div>Error: {error}</div>
+  if (loading) return <div className="loader">Loading Recipe...</div>
+  if (error) return <div className="error">Error: {error}</div>
+  if (!recipe) return <div>No recipe found.</div>;
 
-  const recipe = data.meals[0];
+  
   
   return (
-    <div>
+    <div className="recipe-detail">
       <h1>{recipe.strMeal}</h1>
+
+      <button onClick={() => 
+        isFavorite(recipe.idMeal) 
+        ? removeFavorite(recipe.idMeal) 
+        : addFavorite(recipe.idMeal)}>
+
+          {isFavorite(recipe.idMeal) ? "remove Favorite" : "Add Favorite"}
+        </button>
+        
     {/* <div>Recipe Detail Page</div> */}
     <img src={recipe.strMealThumb} alt={recipe.strMeal} width={250} />
     <p>{recipe.strInstructions}</p>
     {recipe.strYoutube}
 
-     <button onClick={() => isFavorite(recipe.idMeal) ? removeFavorite(recipe.idMeal) : addFavorite(recipe.idMeal)}></button>
+     
 
     </div>
   );

@@ -21,3 +21,47 @@
   padding-right: 10px;
   color: black;
 }
+
+.favorites-page {
+  padding: 2rem;
+}
+
+.favorites-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.favorite-card {
+  background-color: #eee;
+  padding: 10px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.favorite-card img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+.favorite-card h3 {
+  margin: 10px 0;
+  font-size: 1rem;
+}
+
+.favorite-card button {
+  background-color: #ff5555;
+  color: white;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.favorite-card button:hover {
+  background-color: #ff0000;
+}
+

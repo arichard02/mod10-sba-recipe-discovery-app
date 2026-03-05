@@ -6,7 +6,7 @@ function SearchPage() {
  
   return (
     <>
-      <div>
+      <div className='loader'>
         Search Page
       </div>
     </>

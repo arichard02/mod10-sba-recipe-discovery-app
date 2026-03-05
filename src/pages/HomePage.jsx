@@ -62,8 +62,8 @@ function HomePage() {
     "https://www.themealdb.com/api/json/v1/1/categories.php"
   )
 
-  if (loading) return <div>Loading Categories...</div>;
-  if (error) return <div>Error: {error}</div>
+  if (loading) return <div  className="loader">Loading Categories...</div>;
+  if (error) return <div className="error">Error: {error}</div>
 
   const categories = data.categories;
 

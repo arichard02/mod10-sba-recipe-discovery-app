@@ -40,9 +40,9 @@ function CategoryPage() {
     <div>
       <div className="categorypage"> </div>
       <h2> {categoryName}Recipe</h2>
-
+      <ul className="category-grid"></ul>
       {recipes.map((recipe) => (
-        <li key={recipe.idMeal}>
+        <li className="category-card" key={recipe.idMeal}>
          <Link to={`/recipe/${recipe.idMeal}`}>
           <img src={recipe.strMealThumb} alt={`Photo of ${recipe.strMeal}`} />
           <div className="recipe-info">
