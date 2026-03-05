@@ -57,7 +57,7 @@ import { Link } from "react-router-dom";
 // import  useEffect from "..hooks/useFetch";
 import useFetch from "../hooks/useFetch";
 
-function Homepage() {
+function HomePage() {
   const { data, loading, error } = useFetch(
     "https://www.themealdb.com/api/json/v1/1/categories.php"
   )
@@ -88,4 +88,4 @@ function Homepage() {
     </div>  
   );
 }
-export default Homepage
+export default HomePage
