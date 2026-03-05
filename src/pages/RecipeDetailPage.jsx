@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { useFavorites } from "../context/FavoritesContext";
 
 function RecipeDetailPage() {
   const { id } = useParams();
@@ -21,6 +22,9 @@ function RecipeDetailPage() {
   }, []);
 
   console.log(recipe);
+
+  const { addFavorie, removeFavorite, isFavorite } = useFavorites();
+  <button onClick={() => isFavorite(recipe.idMeal) ? removeFavorite(recipe.idMeal) : "Add to Favorites"}></button>
 
   return (
     <>

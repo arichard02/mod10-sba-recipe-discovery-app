@@ -17,10 +17,9 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/category/:categoryName" element={<CategoryPage />} />
-          {/* <Route path="/recipePage" element={<RecipePage />} /> */}
           <Route path="/recipe/:id" element={<RecipeDetailPage />} />
-          <Route path="/favoritesPage" element={<FavoritesPage />} />
-          <Route path="/searchPage" element={<SearchPage />} />
+          <Route path="/favorites" element={<FavoritesPage />} />
+          <Route path="/search" element={<SearchPage />} />
         </Routes>
       </div>
     </>

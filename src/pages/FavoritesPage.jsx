@@ -8,6 +8,8 @@ function FavoritesPage() {
     <>
       <div>
         Favorites Page
+        <p></p>
+        <button>Remove Favorite</button>
       </div>
     </>
   )
