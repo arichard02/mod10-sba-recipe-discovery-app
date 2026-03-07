@@ -7,15 +7,32 @@
 
 .category-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   gap: 30px;
   list-style-type: none;
+  padding: 0;
 }
 
 .category-card {
   background-color: #EEE;
+  padding: 10px;
+  border-radius: 8px;
+  text-align: center;
+  transition: transform 0.25;
 }
 
+.category-card:hover {
+  transform: scale(1.03);
+}
+
+.category-card img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+.category-card h3 {
+  margin: 10px 0 0;
+}
 .category-info {
   padding-left: 10px;
   padding-right: 10px;
@@ -65,3 +82,4 @@
   background-color: #ff0000;
 }
 
+/*  */

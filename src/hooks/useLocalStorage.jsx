@@ -12,6 +12,10 @@ function useLocalStorage(key, initialValue) {
         localStorage.setItem(key, JSON.stringify(newValue));
       };
 
+      const addFavorite = (id) => {
+  if (!favorites.includes(id)) setFavorites([...favorites, id]);
+};
+
     return [value, setStoreValue];
 }
 

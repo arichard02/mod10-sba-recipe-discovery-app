@@ -1,33 +1,19 @@
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { useFavorites } from "../context/FavoritesContext";
 import useFetch from "../hooks/useFetch";
+
 
 function RecipeDetailPage() {
   const { id } = useParams();
   const { data, loading, error } = useFetch(
     `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${id}`
   );
-    // const [recipe, setRecipe] = useState({});
-    // const [loading, setLoading] = useState(true);
-
-  // useEffect(() => {
-  //   const getRecipeDetails = async () => {
-  //     const response = await fetch(
-  //       `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${id}`,
-  //     );
-  //     const data = await response.json();
-  //   //   after you get data back from a server, you have to 
-  //   // use state variable setter that will redraw the screen
-  //     console.log(data);
-  //     setRecipe(data.meals[0])
-  //   };
-  //   getRecipeDetails();
-  // }, []);
-
-  // console.log(recipe);
+ 
+  
 
   const { addFavorite, removeFavorite, isFavorite } = useFavorites();
   const recipe = data?.meals?.[0];
+   const navigate = useNavigate();
   // <button onClick={() => isFavorite(recipe.idMeal) ? removeFavorite(recipe.idMeal) : "Add to Favorites"}></button>
 
   if (loading) return <div className="loader">Loading Recipe...</div>
@@ -45,14 +31,31 @@ function RecipeDetailPage() {
         ? removeFavorite(recipe.idMeal) 
         : addFavorite(recipe.idMeal)}>
 
+         <button onClick={() => navigate(-1)}>⬅ Back</button>
+
           {isFavorite(recipe.idMeal) ? "remove Favorite" : "Add Favorite"}
         </button>
-        
+       <div>
     {/* <div>Recipe Detail Page</div> */}
     <img src={recipe.strMealThumb} alt={recipe.strMeal} width={250} />
-    <p>{recipe.strInstructions}</p>
-    {recipe.strYoutube}
+   
+    <h3>Ingredients:</h3>
+<ul>
+  {Array.from({ length: 20 }).map((_, i) => {
+    const ingredient = recipe[`strIngredient${i+1}`];
+    const measure = recipe[`strMeasure${i+1}`];
+    return ingredient ? <li key={i}>{ingredient} - {measure}</li> : null;
+  })}
+</ul>
+  <h3>Directions:</h3>
+   <p>{recipe.strInstructions}</p>
+   </div> 
 
+   <div>
+   <h3>YouTube Video:</h3>
+<p>{recipe.strYoutube}</p>
+    
+</div>
      
 
     </div>
